@@ -1,5 +1,6 @@
 ﻿using Modelo;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -66,9 +67,66 @@ namespace DAL
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
-
-
         }
-        
+
+        /// <summary>
+        /// Método para carregar dados do usuário na tela
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
+        public Usuario CarregarUsuario(int codigo)
+        {
+            Usuario usuario = new Usuario();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "selec * from usuario where use_id=@codigo";
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                usuario.Id = Convert.ToInt32(registro["use_id"]);
+                usuario.Nome = Convert.ToString(registro["use_nome"]);
+                usuario.Grupo = Convert.ToString(registro["use_grupo"]);
+                usuario.Login = Convert.ToString(registro["use_login"]);
+                usuario.Senha = Convert.ToString(registro["use_senha"]);
+            }
+            conexao.Desconectar();
+            registro.Close();
+            return usuario;
+        }
+
+        /// <summary>
+        /// Método para localizar usuário por código
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
+        public DataTable Localizar(int codigo)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from usuario where use_id=" + codigo.ToString(), conexao.ObjetoConexao);
+            da.Fill(tabela);
+            da.Dispose();
+            return tabela;
+        }
+
+        /// <summary>
+        /// Método para localizar usuário por nome ou login
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns></returns>
+        public DataTable Localizar(string nome)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from usuario where use_nome like '%" + nome.ToString() +
+                "%' OR use_login like '%" + nome.ToString() + "%'", conexao.ObjetoConexao);
+            da.Fill(tabela);
+            da.Dispose();
+            return tabela;
+        }
+
+
+
     }
 }
