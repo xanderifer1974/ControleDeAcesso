@@ -41,9 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{CBB12DCE-F594-4F50-A90E-DA3F6182F459}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ferramentas\Ferramentas.csproj">
       <Project>{e483c999-d8b4-464f-9459-aa6711045b79}</Project>
       <Name>Ferramentas</Name>

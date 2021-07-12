@@ -38,7 +38,7 @@ namespace DAL
         /// Método para alterar usuário.
         /// </summary>
         /// <param name="usuario"></param>
-        public void Atualizar(Usuario usuario)
+        public void Alterar(Usuario usuario)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
@@ -124,6 +124,23 @@ namespace DAL
             da.Fill(tabela);
             da.Dispose();
             return tabela;
+        }
+
+        /// <summary>
+        /// Método para pesquisar login e senha de usuário
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="senha"></param>
+        /// <returns></returns>
+        public DataTable LocalizarUsuarioLogin(string login, string senha)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from usuario where use_login='" + login.ToString() +
+                "COLATE SQL_Latin1_General_CP1_CS_AS and use_senha='" + senha.ToString(), conexao.StringConexao);
+            da.Fill(tabela);
+            da.Dispose();
+            return tabela;
+
         }
 
 
