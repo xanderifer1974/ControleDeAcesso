@@ -1,6 +1,7 @@
 ﻿using DAL;
 using Modelo;
 using System;
+using System.Data;
 
 namespace BLL
 {
@@ -74,7 +75,33 @@ namespace BLL
 
         public void Excluir(int codigo)
         {
+            DALUsuario DALobj = new DALUsuario(conexao);
+            DALobj.Excluir(codigo);
 
+        }
+
+        public Usuario CarregarUsuario(int codigo)
+        {
+            DALUsuario DALobj = new DALUsuario(conexao);
+            return DALobj.CarregarUsuario(codigo);
+        }
+
+        public DataTable Localizar(int codigo)
+        {
+            DALUsuario DALobj = new DALUsuario(conexao);
+            return DALobj.Localizar(codigo);
+        }
+
+        public DataTable Localizar(string nome)
+        {
+            DALUsuario DALobj = new DALUsuario(conexao);
+            return DALobj.Localizar(nome);
+        }
+
+        public DataTable LocalizarUsuarioLogin(string login, string senha)
+        {
+            DALUsuario DALobj = new DALUsuario(conexao);
+            return DALobj.LocalizarUsuarioLogin(login,senha);
         }
     }
 }
