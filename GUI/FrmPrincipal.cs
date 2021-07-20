@@ -21,5 +21,10 @@ namespace GUI
         {
             Application.Exit(); 
         }
+
+        private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
