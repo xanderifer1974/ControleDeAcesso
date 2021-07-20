@@ -26,5 +26,12 @@ namespace GUI
         {
 
         }
+
+        private void testeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmModeloCadastro f = new frmModeloCadastro();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

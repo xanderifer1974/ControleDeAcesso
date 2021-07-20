@@ -12,9 +12,26 @@ namespace GUI
 {
     public partial class frmModeloCadastro : Form
     {
+        //Variáveis que serão utilizadas nos formulários filhos
+        public string operacao;
+
+
         public frmModeloCadastro()
         {
+          
             InitializeComponent();
+        }
+
+        public void alteraBotoes(int op, Boolean perInserir, Boolean perAlterar, Boolean perExcluir, Boolean perImprimir)
+        {
+            pnDados.Enabled = false;
+            btnInserir.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnPesquisar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnSalvar.Enabled = false;
+
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -22,7 +39,7 @@ namespace GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPesquisar_Click(object sender, EventArgs e)
         {
 
         }
@@ -32,7 +49,27 @@ namespace GUI
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmModeloCadastro_Load(object sender, EventArgs e)
         {
 
         }

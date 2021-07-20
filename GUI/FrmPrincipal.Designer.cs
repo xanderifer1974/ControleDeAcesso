@@ -55,6 +55,7 @@
             this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSair = new System.Windows.Forms.Button();
+            this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,8 @@
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnClientes,
             this.mnFornecedores,
-            this.mnProdutos});
+            this.mnProdutos,
+            this.testeToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(128, 29);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -119,19 +121,19 @@
             // mnConsultaCliente
             // 
             this.mnConsultaCliente.Name = "mnConsultaCliente";
-            this.mnConsultaCliente.Size = new System.Drawing.Size(252, 30);
+            this.mnConsultaCliente.Size = new System.Drawing.Size(214, 30);
             this.mnConsultaCliente.Text = "Cliente";
             // 
             // mnConsultaFornecedor
             // 
             this.mnConsultaFornecedor.Name = "mnConsultaFornecedor";
-            this.mnConsultaFornecedor.Size = new System.Drawing.Size(252, 30);
+            this.mnConsultaFornecedor.Size = new System.Drawing.Size(214, 30);
             this.mnConsultaFornecedor.Text = "Fornecedor";
             // 
             // mnConsultaProduto
             // 
             this.mnConsultaProduto.Name = "mnConsultaProduto";
-            this.mnConsultaProduto.Size = new System.Drawing.Size(252, 30);
+            this.mnConsultaProduto.Size = new System.Drawing.Size(214, 30);
             this.mnConsultaProduto.Text = "Produto";
             // 
             // movimentaçãoToolStripMenuItem
@@ -147,19 +149,19 @@
             // mnCompra
             // 
             this.mnCompra.Name = "mnCompra";
-            this.mnCompra.Size = new System.Drawing.Size(252, 30);
+            this.mnCompra.Size = new System.Drawing.Size(180, 30);
             this.mnCompra.Text = "Compra";
             // 
             // mnVenda
             // 
             this.mnVenda.Name = "mnVenda";
-            this.mnVenda.Size = new System.Drawing.Size(252, 30);
+            this.mnVenda.Size = new System.Drawing.Size(180, 30);
             this.mnVenda.Text = "Venda";
             // 
             // mnEstoque
             // 
             this.mnEstoque.Name = "mnEstoque";
-            this.mnEstoque.Size = new System.Drawing.Size(252, 30);
+            this.mnEstoque.Size = new System.Drawing.Size(180, 30);
             this.mnEstoque.Text = "Estoque";
             // 
             // financeiroToolStripMenuItem
@@ -197,7 +199,7 @@
             this.mnRelContasAReceber,
             this.mnRelContasAPagar});
             this.financeirosToolStripMenuItem.Name = "financeirosToolStripMenuItem";
-            this.financeirosToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.financeirosToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
             this.financeirosToolStripMenuItem.Text = "Financeiros";
             // 
             // mnRelContasAReceber
@@ -263,6 +265,13 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // testeToolStripMenuItem
+            // 
+            this.testeToolStripMenuItem.Name = "testeToolStripMenuItem";
+            this.testeToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.testeToolStripMenuItem.Text = "Teste";
+            this.testeToolStripMenuItem.Click += new System.EventHandler(this.testeToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -311,6 +320,7 @@
         private System.Windows.Forms.ToolStripMenuItem ferramentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
     }
 }
 
