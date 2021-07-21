@@ -23,7 +23,7 @@ namespace GUI
         }
 
         public void alteraBotoes(int op, Boolean perInserir, Boolean perAlterar, Boolean perExcluir, Boolean perImprimir)
-        {
+        { // 1 - Inserir e Localizar 2 - Inserir e Alterar  3 - Excluir e Alterar
             pnDados.Enabled = false;
             btnInserir.Enabled = false;
             btnAlterar.Enabled = false;
@@ -31,6 +31,26 @@ namespace GUI
             btnExcluir.Enabled = false;
             btnCancelar.Enabled = false;
             btnSalvar.Enabled = false;
+
+            if (op == 1)
+            {
+                pnDados.Enabled = perInserir;
+                btnPesquisar.Enabled = true;
+            }
+
+            if (op == 2)
+            {
+                pnDados.Enabled = true;
+                btnSalvar.Enabled = true;
+                btnCancelar.Enabled = true;
+            }
+
+            if (op == 3)
+            {
+                btnAlterar.Enabled = perAlterar;
+                btnExcluir.Enabled = perExcluir;
+                btnCancelar.Enabled = true;
+            }
 
         }
 
@@ -71,7 +91,7 @@ namespace GUI
 
         private void frmModeloCadastro_Load(object sender, EventArgs e)
         {
-
+            alteraBotoes(1, false, false, false, false);
         }
     }
 }

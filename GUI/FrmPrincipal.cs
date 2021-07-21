@@ -33,5 +33,13 @@ namespace GUI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void mnCadUsuario_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario f = new frmCadastroUsuario();
+            f.ShowDialog();
+            f.Dispose();
+
+        }
     }
 }
