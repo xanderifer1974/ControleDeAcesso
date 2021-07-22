@@ -54,6 +54,18 @@
             this.pnDados.Controls.Add(this.txtNome);
             this.pnDados.Controls.Add(this.txtCodigo);
             // 
+            // btnInserir
+            // 
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(29, 58);
@@ -67,7 +79,7 @@
             this.label1.Location = new System.Drawing.Point(25, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 20);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 9;
             this.label1.Text = "Código:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -76,7 +88,7 @@
             this.txtNome.Location = new System.Drawing.Point(29, 116);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(785, 26);
-            this.txtNome.TabIndex = 0;
+            this.txtNome.TabIndex = 1;
             // 
             // label2
             // 
@@ -84,7 +96,7 @@
             this.label2.Location = new System.Drawing.Point(25, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 20);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 8;
             this.label2.Text = "Nome do Usuário:";
             this.label2.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -93,7 +105,7 @@
             this.txtLogin.Location = new System.Drawing.Point(29, 174);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(468, 26);
-            this.txtLogin.TabIndex = 0;
+            this.txtLogin.TabIndex = 2;
             this.txtLogin.TextChanged += new System.EventHandler(this.txtLogin_TextChanged);
             // 
             // label3
@@ -102,7 +114,7 @@
             this.label3.Location = new System.Drawing.Point(25, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 20);
-            this.label3.TabIndex = 1;
+            this.label3.TabIndex = 7;
             this.label3.Text = "Login:";
             this.label3.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -111,7 +123,7 @@
             this.txtSenha.Location = new System.Drawing.Point(29, 232);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(468, 26);
-            this.txtSenha.TabIndex = 0;
+            this.txtSenha.TabIndex = 3;
             // 
             // label4
             // 
@@ -119,7 +131,7 @@
             this.label4.Location = new System.Drawing.Point(25, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 20);
-            this.label4.TabIndex = 1;
+            this.label4.TabIndex = 6;
             this.label4.Text = "Senha:";
             this.label4.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -128,7 +140,7 @@
             this.textBox4.Location = new System.Drawing.Point(29, 290);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(468, 26);
-            this.textBox4.TabIndex = 0;
+            this.textBox4.TabIndex = 4;
             // 
             // label5
             // 
@@ -136,7 +148,7 @@
             this.label5.Location = new System.Drawing.Point(25, 264);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 20);
-            this.label5.TabIndex = 1;
+            this.label5.TabIndex = 5;
             this.label5.Text = "Grupo:";
             this.label5.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -146,6 +158,7 @@
             this.ClientSize = new System.Drawing.Size(928, 494);
             this.Name = "frmCadastroUsuario";
             this.Text = "Cadastro de Usuários do Sistema";
+            this.Load += new System.EventHandler(this.frmCadastroUsuario_Load);
             this.pnDados.ResumeLayout(false);
             this.pnDados.PerformLayout();
             this.ResumeLayout(false);

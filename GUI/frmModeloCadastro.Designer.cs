@@ -182,12 +182,12 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnInserir;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.Button btnPesquisar;
         protected System.Windows.Forms.Panel pnDados;
+        protected System.Windows.Forms.Button btnInserir;
+        protected System.Windows.Forms.Button btnCancelar;
+        protected System.Windows.Forms.Button btnSalvar;
+        protected System.Windows.Forms.Button btnExcluir;
+        protected System.Windows.Forms.Button btnAlterar;
+        protected System.Windows.Forms.Button btnPesquisar;
     }
 }

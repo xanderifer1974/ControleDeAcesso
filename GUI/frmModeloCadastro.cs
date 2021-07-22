@@ -34,7 +34,7 @@ namespace GUI
 
             if (op == 1)
             {
-                pnDados.Enabled = perInserir;
+                btnInserir.Enabled = perInserir;
                 btnPesquisar.Enabled = true;
             }
 
