@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL;
+using DAL;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -73,5 +76,70 @@ namespace GUI
             alteraBotoes(1, perInserir, perAlterar, perExcluir, perImprimir);
 
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult d = MessageBox.Show("Deseja Excluir o Registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+
+                if (d.ToString() == "Yes")
+                {
+                    DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
+                    BLLUsuario bll = new BLLUsuario(cx);
+                    bll.Excluir(Convert.ToInt32(txtCodigo.Text));
+                    limparTela();
+                    alteraBotoes(1, perInserir, perAlterar, perExcluir, perImprimir);
+                }
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Impossível Excluir o Registro!!! \n O Registro pode estar vinculado em outras tabelas!!! \n\n Contacte o Administrador do Sistema\n\nErro ocorrido: " + erro.Message
+                 ,"Erro",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario usuario = new Usuario();
+                usuario.Grupo = txtGrupo.Text;
+                usuario.Nome = txtNome.Text;
+                usuario.Senha = txtSenha.Text;
+                usuario.Login = txtLogin.Text;
+
+                DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
+                BLLUsuario bll = new BLLUsuario(cx);
+                if (operacao == "inserir")
+                {
+                    //Cadastro do usuário.
+                    bll.Incluir(usuario);
+                    MessageBox.Show("Cadastro Efetuado com Sucesso!!!\n\nCódigo: " + usuario.Id.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    //Alterar dados
+                    usuario.Id = Convert.ToInt32(txtCodigo.Text);
+                    bll.Atualizar(usuario);
+                    MessageBox.Show("Cadastro Alterado com Sucesso!!!\n\nCódigo: " + usuario.Id.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                limparTela();
+                alteraBotoes(1, perInserir, perAlterar, perExcluir, perImprimir);
+            }
+            catch(Exception erro)
+            {
+
+                MessageBox.Show("Não foi possível realizar a operação!!! \n\n Contacte o Administrador do Sistema\n\nErro ocorrido: " + erro.Message
+                , "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+
+        }
+            
     }
 }

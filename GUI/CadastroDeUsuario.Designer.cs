@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtGrupo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pnDados.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +48,7 @@
             this.pnDados.Controls.Add(this.label3);
             this.pnDados.Controls.Add(this.label2);
             this.pnDados.Controls.Add(this.label1);
-            this.pnDados.Controls.Add(this.textBox4);
+            this.pnDados.Controls.Add(this.txtGrupo);
             this.pnDados.Controls.Add(this.txtSenha);
             this.pnDados.Controls.Add(this.txtLogin);
             this.pnDados.Controls.Add(this.txtNome);
@@ -61,6 +61,14 @@
             // btnCancelar
             // 
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -135,12 +143,12 @@
             this.label4.Text = "Senha:";
             this.label4.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox4
+            // txtGrupo
             // 
-            this.textBox4.Location = new System.Drawing.Point(29, 290);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(468, 26);
-            this.textBox4.TabIndex = 4;
+            this.txtGrupo.Location = new System.Drawing.Point(29, 290);
+            this.txtGrupo.Name = "txtGrupo";
+            this.txtGrupo.Size = new System.Drawing.Size(468, 26);
+            this.txtGrupo.TabIndex = 4;
             // 
             // label5
             // 
@@ -173,7 +181,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtGrupo;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtNome;
