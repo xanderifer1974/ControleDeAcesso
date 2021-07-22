@@ -76,6 +76,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(29, 58);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 26);
@@ -97,6 +98,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(785, 26);
             this.txtNome.TabIndex = 1;
+            this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // label2
             // 
@@ -130,8 +132,10 @@
             // 
             this.txtSenha.Location = new System.Drawing.Point(29, 232);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(468, 26);
             this.txtSenha.TabIndex = 3;
+            this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
             // 
             // label4
             // 

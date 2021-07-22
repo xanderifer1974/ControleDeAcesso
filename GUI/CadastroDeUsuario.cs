@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -140,6 +141,28 @@ namespace GUI
 
 
         }
+
+        private void txtSenha_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNome_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (operacao == "inserir" && txtLogin.Text.Trim().Length == 0 && txtNome.Text.Trim().Length > 0)
+                {
+                    string[] f = txtNome.Text.Split(' ');
+                    txtLogin.Text = Convert.ToString(f[0] + f.Last());
+                }
+            }
+            catch 
+            {
+
+                return;
+            }
             
+        }
     }
 }
