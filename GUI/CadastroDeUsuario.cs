@@ -164,5 +164,17 @@ namespace GUI
             }
             
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmLocalizarUsuario  f = new frmLocalizarUsuario();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void pnDados_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace GUI
 {
     public partial class frmLocalizarUsuario : Form
     {
+        public int codigo = 0;
         public frmLocalizarUsuario()
         {
             InitializeComponent();
@@ -35,6 +38,13 @@ namespace GUI
         private void txtValor_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLocalizar_Click(object sender, EventArgs e)
+        {
+            DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
+            BLLUsuario bll = new BLLUsuario(cx);
+            dgvDados.DataSource = bll.Localizar(txtValor.Text);
         }
     }
 }

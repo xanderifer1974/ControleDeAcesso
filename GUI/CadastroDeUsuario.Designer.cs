@@ -53,6 +53,7 @@
             this.pnDados.Controls.Add(this.txtLogin);
             this.pnDados.Controls.Add(this.txtNome);
             this.pnDados.Controls.Add(this.txtCodigo);
+            this.pnDados.Paint += new System.Windows.Forms.PaintEventHandler(this.pnDados_Paint);
             // 
             // btnInserir
             // 
@@ -73,6 +74,10 @@
             // btnAlterar
             // 
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtCodigo
             // 
