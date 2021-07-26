@@ -41,7 +41,6 @@
             this.dgvDados.AllowUserToDeleteRows = false;
             this.dgvDados.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDados.ColumnHeadersVisible = false;
             this.dgvDados.Location = new System.Drawing.Point(48, 112);
             this.dgvDados.Name = "dgvDados";
             this.dgvDados.RowHeadersVisible = false;
@@ -49,6 +48,7 @@
             this.dgvDados.Size = new System.Drawing.Size(855, 323);
             this.dgvDados.TabIndex = 0;
             this.dgvDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvDados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDados_CellDoubleClick);
             // 
             // txtValor
             // 

@@ -79,7 +79,7 @@ namespace DAL
             Usuario usuario = new Usuario();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "selec * from usuario where use_id=@codigo";
+            cmd.CommandText = "select * from usuario where use_id=@codigo";
             cmd.Parameters.AddWithValue("@codigo", codigo);
             conexao.Conectar();
             SqlDataReader registro = cmd.ExecuteReader();
