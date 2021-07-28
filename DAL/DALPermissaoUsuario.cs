@@ -1,5 +1,6 @@
 ﻿using Modelo;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -52,5 +53,71 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
+
+        /// <summary>
+        /// Método para carregar as permissões do usuário.
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
+        public PermissaoDoUsuario CarregarPermissaoDoUsuario(int codigo)
+        {
+            PermissaoDoUsuario permissaoDoUsuario = new PermissaoDoUsuario();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from permissao_usuario where use_id=@codigo";
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                permissaoDoUsuario.PerId = Convert.ToInt32(registro["per_id"]);
+                permissaoDoUsuario.UseId = Convert.ToInt32(registro["use_id"]);
+                permissaoDoUsuario.PerNomeFrm = Convert.ToString(registro["per_nomefrm"]);
+                permissaoDoUsuario.PerDescricao = Convert.ToString(registro["per_descricao"]);
+                permissaoDoUsuario.Bloqueado = Convert.ToString(registro["per_bloqueada"]);
+                permissaoDoUsuario.PerInserir = Convert.ToString(registro["per_inserir"]);
+                permissaoDoUsuario.PerAlterar = Convert.ToString(registro["per_alterar"]);
+                permissaoDoUsuario.PerExcluir = Convert.ToString(registro["per_excluir"]);
+                permissaoDoUsuario.PerImprimir = Convert.ToString(registro["per_imprimir"]);               
+            }
+            conexao.Desconectar();
+            registro.Close();
+            return permissaoDoUsuario;
+        }
+
+        /// <summary>
+        /// Método que preenche o DGV Dados com as permissões
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
+        public DataTable Localizar(int codigo)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select p.per_id, p.per_nomefrm,p.per_descricao,p.per_bloqueada,p.per_inserir,p.per_alterar,p.per_excluir,p.per_imprimir," +
+                "u.use_nome,u.use_login,u.use_id from usuario u inner join permissao_usuario p on u.use_id=p.use_id" +
+                "where u.use_id =" + codigo.ToString(), conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+
+        /// <summary>
+        /// Método localizar que pega a permissão do usuario para ser utilizado nos formulários.
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="nomeFormulario"></param>
+        /// <returns></returns>
+        public DataTable LocalizarPermissoes(int idUsuario, string nomeFormulario)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select p.per_id, p.per_nomefrm,p.per_descricao,p.per_bloqueada,p.per_inserir,p.per_alterar,p.per_excluir,p.per_imprimir," +
+                "u.use_nome,u.use_login,u.use_id from usuario u inner join permissao_usuario p on u.use_id=p.use_id" +
+                "where p.per_nomefrm ='" + nomeFormulario.ToString() + "' and p.use_id = " + idUsuario.ToString(), conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+
+
+
     }
 }
