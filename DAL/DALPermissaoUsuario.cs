@@ -95,8 +95,8 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select p.per_id, p.per_nomefrm,p.per_descricao,p.per_bloqueada,p.per_inserir,p.per_alterar,p.per_excluir,p.per_imprimir," +
-                "u.use_nome,u.use_login,u.use_id from usuario u inner join permissao_usuario p on u.use_id=p.use_id" +
-                "where u.use_id =" + codigo.ToString(), conexao.StringConexao);
+                "u.use_nome,u.use_login,u.use_id from usuario u inner join permissao_usuario p on u.use_id=p.use_id " +
+                "where u.use_id =" + codigo.ToString(), conexao.StringConexao);           
             da.Fill(tabela);
             return tabela;
         }
@@ -111,7 +111,7 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select p.per_id, p.per_nomefrm,p.per_descricao,p.per_bloqueada,p.per_inserir,p.per_alterar,p.per_excluir,p.per_imprimir," +
-                "u.use_nome,u.use_login,u.use_id from usuario u inner join permissao_usuario p on u.use_id=p.use_id" +
+                "u.use_nome,u.use_login,u.use_id from usuario u inner join permissao_usuario p on u.use_id=p.use_id " +
                 "where p.per_nomefrm ='" + nomeFormulario.ToString() + "' and p.use_id = " + idUsuario.ToString(), conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
