@@ -17,9 +17,45 @@ namespace GUI
             InitializeComponent();
         }
 
+        public void alteraBotoes(int op)
+        { // 1 - Inserir e Localizar 2 - Inserir e Alterar  3 - Excluir e Alterar
+            
+            btnAlterar.Enabled = false;
+            btnPesquisar.Enabled = false;
+            btnLocalizarPermissao.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnSalvar.Enabled = false;
+            dgvDadosPermissao.Enabled = false;
+            btnExcluir.Enabled = false;
+           
+          
+         
+
+            if (op == 1)
+            {
+                btnPesquisar.Enabled = true;
+                btnLocalizarPermissao.Enabled = true;
+            }
+
+            if (op == 2)
+            {
+                dgvDadosPermissao.Enabled = true;
+                btnSalvar.Enabled = true;
+                btnCancelar.Enabled = true;
+            }
+
+            if (op == 3)
+            {
+                btnAlterar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnCancelar.Enabled = true;
+            }
+
+        }
+
         private void frmPermissaoUsuario_Load(object sender, EventArgs e)
         {
-
+            alteraBotoes(1);
         }
 
         private void btnLocalizarPermissao_Click(object sender, EventArgs e)
