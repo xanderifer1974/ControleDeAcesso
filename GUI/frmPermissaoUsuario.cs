@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -145,6 +146,36 @@ namespace GUI
 
         private void label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
+            PermissaoDoUsuario permissaoDoUsuario = new PermissaoDoUsuario();
+            BLLPermissaoDoUsuario bll = new BLLPermissaoDoUsuario(cx);
+
+            if(operacao == "alterar")
+            {
+                //Excluir as permissões do usuário.
+                BLLPermissaoDoUsuario bllExcluir = new BLLPermissaoDoUsuario(cx);
+                bllExcluir.ExcluiTudo(usoId);
+            }
+            int tLinhas = dgvDadosPermissao.RowCount;
+            //Preencher o modelo e gravar no BD
+            for(int i = 0; i < tLinhas; i++)
+            {
+                permissaoDoUsuario.PerAlterar = Convert.ToString(dgvDadosPermissao.Rows[i].Cells[5].Value);
+                permissaoDoUsuario.Bloqueado = Convert.ToString(dgvDadosPermissao.Rows[i].Cells[3].Value);
+                permissaoDoUsuario.PerDescricao = Convert.ToString(dgvDadosPermissao.Rows[i].Cells[2].Value);
+                permissaoDoUsuario.PerExcluir = Convert.ToString(dgvDadosPermissao.Rows[i].Cells[6].Value);
+                permissaoDoUsuario.PerImprimir = Convert.ToString(dgvDadosPermissao.Rows[i].Cells[7].Value);
+                permissaoDoUsuario.PerInserir = Convert.ToString(dgvDadosPermissao.Rows[i].Cells[4].Value);
+                permissaoDoUsuario.PerNomeFrm = Convert.ToString(dgvDadosPermissao.Rows[i].Cells[1].Value);
+                permissaoDoUsuario.UseId = Convert.ToInt32(usoId);
+                bll.Incluir(permissaoDoUsuario);
+            }
+          
 
         }
     }
