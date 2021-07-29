@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLPermissaoDeUsuario.cs" />
     <Compile Include="CadastroDeUsuario.cs">
       <SubType>Form</SubType>
     </Compile>

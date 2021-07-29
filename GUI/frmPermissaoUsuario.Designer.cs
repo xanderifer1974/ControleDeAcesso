@@ -35,9 +35,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.dgvDadosPermissao = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.btnLocalizarPermissao = new System.Windows.Forms.Button();
             this.per_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeFrm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +43,9 @@
             this.alterar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Excluir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.imprimir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.btnLocalizarPermissao = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDadosPermissao)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +78,7 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -126,6 +127,7 @@
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnPesquisar
             // 
@@ -164,32 +166,6 @@
             this.dgvDadosPermissao.RowTemplate.Height = 28;
             this.dgvDadosPermissao.Size = new System.Drawing.Size(902, 282);
             this.dgvDadosPermissao.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Usuário";
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(100, 15);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(680, 26);
-            this.txtValor.TabIndex = 5;
-            // 
-            // btnLocalizarPermissao
-            // 
-            this.btnLocalizarPermissao.Location = new System.Drawing.Point(786, 13);
-            this.btnLocalizarPermissao.Name = "btnLocalizarPermissao";
-            this.btnLocalizarPermissao.Size = new System.Drawing.Size(107, 30);
-            this.btnLocalizarPermissao.TabIndex = 6;
-            this.btnLocalizarPermissao.Text = "Localizar";
-            this.btnLocalizarPermissao.UseVisualStyleBackColor = true;
-            this.btnLocalizarPermissao.Click += new System.EventHandler(this.btnLocalizarPermissao_Click);
             // 
             // per_id
             // 
@@ -238,6 +214,33 @@
             this.imprimir.HeaderText = "Imprimir";
             this.imprimir.Name = "imprimir";
             this.imprimir.Width = 70;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Código do Usuário";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(34, 41);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(680, 26);
+            this.txtValor.TabIndex = 5;
+            // 
+            // btnLocalizarPermissao
+            // 
+            this.btnLocalizarPermissao.Location = new System.Drawing.Point(732, 39);
+            this.btnLocalizarPermissao.Name = "btnLocalizarPermissao";
+            this.btnLocalizarPermissao.Size = new System.Drawing.Size(107, 30);
+            this.btnLocalizarPermissao.TabIndex = 6;
+            this.btnLocalizarPermissao.Text = "Localizar";
+            this.btnLocalizarPermissao.UseVisualStyleBackColor = true;
+            this.btnLocalizarPermissao.Click += new System.EventHandler(this.btnLocalizarPermissao_Click);
             // 
             // frmPermissaoUsuario
             // 
