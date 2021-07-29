@@ -243,6 +243,7 @@
             this.mnPermissaoUsuario.Name = "mnPermissaoUsuario";
             this.mnPermissaoUsuario.Size = new System.Drawing.Size(320, 30);
             this.mnPermissaoUsuario.Text = "Permissão de Usuário";
+            this.mnPermissaoUsuario.Click += new System.EventHandler(this.mnPermissaoUsuario_Click);
             // 
             // mnConsultaUsuario
             // 

@@ -41,5 +41,12 @@ namespace GUI
             f.Dispose();
 
         }
+
+        private void mnPermissaoUsuario_Click(object sender, EventArgs e)
+        {
+            frmPermissaoUsuario f = new frmPermissaoUsuario();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

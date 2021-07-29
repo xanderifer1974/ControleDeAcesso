@@ -34,9 +34,10 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDadosPermissao = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
+            this.btnLocalizarPermissao = new System.Windows.Forms.Button();
             this.per_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeFrm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +46,8 @@
             this.alterar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Excluir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.imprimir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnLocalizarPermissao = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDadosPermissao)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -143,13 +143,13 @@
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvDadosPermissao
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDadosPermissao.AllowUserToAddRows = false;
+            this.dgvDadosPermissao.AllowUserToDeleteRows = false;
+            this.dgvDadosPermissao.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvDadosPermissao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDadosPermissao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.per_id,
             this.nomeFrm,
             this.descricao,
@@ -158,12 +158,12 @@
             this.alterar,
             this.Excluir,
             this.imprimir});
-            this.dataGridView1.Location = new System.Drawing.Point(21, 98);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(902, 282);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvDadosPermissao.Location = new System.Drawing.Point(21, 98);
+            this.dgvDadosPermissao.Name = "dgvDadosPermissao";
+            this.dgvDadosPermissao.RowHeadersVisible = false;
+            this.dgvDadosPermissao.RowTemplate.Height = 28;
+            this.dgvDadosPermissao.Size = new System.Drawing.Size(902, 282);
+            this.dgvDadosPermissao.TabIndex = 3;
             // 
             // label1
             // 
@@ -181,6 +181,16 @@
             this.txtValor.Size = new System.Drawing.Size(680, 26);
             this.txtValor.TabIndex = 5;
             // 
+            // btnLocalizarPermissao
+            // 
+            this.btnLocalizarPermissao.Location = new System.Drawing.Point(786, 13);
+            this.btnLocalizarPermissao.Name = "btnLocalizarPermissao";
+            this.btnLocalizarPermissao.Size = new System.Drawing.Size(107, 30);
+            this.btnLocalizarPermissao.TabIndex = 6;
+            this.btnLocalizarPermissao.Text = "Localizar";
+            this.btnLocalizarPermissao.UseVisualStyleBackColor = true;
+            this.btnLocalizarPermissao.Click += new System.EventHandler(this.btnLocalizarPermissao_Click);
+            // 
             // per_id
             // 
             this.per_id.HeaderText = "PerId";
@@ -197,41 +207,37 @@
             // 
             this.descricao.HeaderText = "Formulario";
             this.descricao.Name = "descricao";
-            this.descricao.Width = 400;
+            this.descricao.Width = 250;
             // 
             // bloqueado
             // 
             this.bloqueado.HeaderText = "Bloqueado";
             this.bloqueado.Name = "bloqueado";
+            this.bloqueado.Width = 70;
             // 
             // inserir
             // 
             this.inserir.HeaderText = "Inserir";
             this.inserir.Name = "inserir";
+            this.inserir.Width = 70;
             // 
             // alterar
             // 
             this.alterar.HeaderText = "Alterar";
             this.alterar.Name = "alterar";
+            this.alterar.Width = 70;
             // 
             // Excluir
             // 
             this.Excluir.HeaderText = "Excluir";
             this.Excluir.Name = "Excluir";
+            this.Excluir.Width = 70;
             // 
             // imprimir
             // 
             this.imprimir.HeaderText = "Imprimir";
             this.imprimir.Name = "imprimir";
-            // 
-            // btnLocalizarPermissao
-            // 
-            this.btnLocalizarPermissao.Location = new System.Drawing.Point(786, 13);
-            this.btnLocalizarPermissao.Name = "btnLocalizarPermissao";
-            this.btnLocalizarPermissao.Size = new System.Drawing.Size(107, 30);
-            this.btnLocalizarPermissao.TabIndex = 6;
-            this.btnLocalizarPermissao.Text = "Localizar";
-            this.btnLocalizarPermissao.UseVisualStyleBackColor = true;
+            this.imprimir.Width = 70;
             // 
             // frmPermissaoUsuario
             // 
@@ -241,14 +247,14 @@
             this.Controls.Add(this.btnLocalizarPermissao);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDadosPermissao);
             this.Controls.Add(this.panel2);
             this.Name = "frmPermissaoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Definir Permissões do Usuário";
             this.Load += new System.EventHandler(this.frmPermissaoUsuario_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDadosPermissao)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,9 +268,10 @@
         protected System.Windows.Forms.Button btnExcluir;
         protected System.Windows.Forms.Button btnAlterar;
         protected System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDadosPermissao;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.Button btnLocalizarPermissao;
         private System.Windows.Forms.DataGridViewTextBoxColumn per_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeFrm;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
@@ -273,6 +280,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn alterar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Excluir;
         private System.Windows.Forms.DataGridViewCheckBoxColumn imprimir;
-        private System.Windows.Forms.Button btnLocalizarPermissao;
     }
 }
