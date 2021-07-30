@@ -35,6 +35,9 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.dgvDadosPermissao = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.btnLocalizarPermissao = new System.Windows.Forms.Button();
             this.per_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeFrm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,9 +46,6 @@
             this.alterar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Excluir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.imprimir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.btnLocalizarPermissao = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDadosPermissao)).BeginInit();
             this.SuspendLayout();
@@ -167,54 +167,7 @@
             this.dgvDadosPermissao.RowTemplate.Height = 28;
             this.dgvDadosPermissao.Size = new System.Drawing.Size(902, 282);
             this.dgvDadosPermissao.TabIndex = 3;
-            // 
-            // per_id
-            // 
-            this.per_id.HeaderText = "PerId";
-            this.per_id.Name = "per_id";
-            this.per_id.Visible = false;
-            // 
-            // nomeFrm
-            // 
-            this.nomeFrm.HeaderText = "nmFrm";
-            this.nomeFrm.Name = "nomeFrm";
-            this.nomeFrm.Visible = false;
-            // 
-            // descricao
-            // 
-            this.descricao.HeaderText = "Formulario";
-            this.descricao.Name = "descricao";
-            this.descricao.Width = 250;
-            // 
-            // bloqueado
-            // 
-            this.bloqueado.HeaderText = "Bloqueado";
-            this.bloqueado.Name = "bloqueado";
-            this.bloqueado.Width = 70;
-            // 
-            // inserir
-            // 
-            this.inserir.HeaderText = "Inserir";
-            this.inserir.Name = "inserir";
-            this.inserir.Width = 70;
-            // 
-            // alterar
-            // 
-            this.alterar.HeaderText = "Alterar";
-            this.alterar.Name = "alterar";
-            this.alterar.Width = 70;
-            // 
-            // Excluir
-            // 
-            this.Excluir.HeaderText = "Excluir";
-            this.Excluir.Name = "Excluir";
-            this.Excluir.Width = 70;
-            // 
-            // imprimir
-            // 
-            this.imprimir.HeaderText = "Imprimir";
-            this.imprimir.Name = "imprimir";
-            this.imprimir.Width = 70;
+            this.dgvDadosPermissao.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDadosPermissao_DataError);
             // 
             // label1
             // 
@@ -242,6 +195,64 @@
             this.btnLocalizarPermissao.Text = "Localizar";
             this.btnLocalizarPermissao.UseVisualStyleBackColor = true;
             this.btnLocalizarPermissao.Click += new System.EventHandler(this.btnLocalizarPermissao_Click);
+            // 
+            // per_id
+            // 
+            this.per_id.HeaderText = "PerId";
+            this.per_id.Name = "per_id";
+            this.per_id.Visible = false;
+            // 
+            // nomeFrm
+            // 
+            this.nomeFrm.HeaderText = "nmFrm";
+            this.nomeFrm.Name = "nomeFrm";
+            this.nomeFrm.Visible = false;
+            // 
+            // descricao
+            // 
+            this.descricao.HeaderText = "Formulario";
+            this.descricao.Name = "descricao";
+            this.descricao.Width = 250;
+            // 
+            // bloqueado
+            // 
+            this.bloqueado.FalseValue = "\"False\"";
+            this.bloqueado.HeaderText = "Bloqueado";
+            this.bloqueado.Name = "bloqueado";
+            this.bloqueado.TrueValue = "\"True\"";
+            this.bloqueado.Width = 70;
+            // 
+            // inserir
+            // 
+            this.inserir.FalseValue = "\"False\"";
+            this.inserir.HeaderText = "Inserir";
+            this.inserir.Name = "inserir";
+            this.inserir.TrueValue = "\"True\"";
+            this.inserir.Width = 70;
+            // 
+            // alterar
+            // 
+            this.alterar.FalseValue = "\"False\"";
+            this.alterar.HeaderText = "Alterar";
+            this.alterar.Name = "alterar";
+            this.alterar.TrueValue = "\"True\"";
+            this.alterar.Width = 70;
+            // 
+            // Excluir
+            // 
+            this.Excluir.FalseValue = "\"False\"";
+            this.Excluir.HeaderText = "Excluir";
+            this.Excluir.Name = "Excluir";
+            this.Excluir.TrueValue = "\"True\"";
+            this.Excluir.Width = 70;
+            // 
+            // imprimir
+            // 
+            this.imprimir.FalseValue = "\"False\"";
+            this.imprimir.HeaderText = "Imprimir";
+            this.imprimir.Name = "imprimir";
+            this.imprimir.TrueValue = "\"True\"";
+            this.imprimir.Width = 70;
             // 
             // frmPermissaoUsuario
             // 
