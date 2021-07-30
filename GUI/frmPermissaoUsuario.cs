@@ -86,11 +86,22 @@ namespace GUI
                     dgvDadosPermissao.Rows[x].Cells[6].Value = tabela.Rows[x][6];
                     dgvDadosPermissao.Rows[x].Cells[7].Value = tabela.Rows[x][7];
 
-
                 }
+                usoId = Convert.ToInt32(tabela.Rows[0][10]);
+                usoNomePesquiado = Convert.ToString(tabela.Rows[0][8]);
+                usoLoginPesquisado = Convert.ToString(tabela.Rows[0][9]);
+
             }
             else
             {
+                BLLUsuario bllUsuario = new BLLUsuario(cx);
+                DataTable dtbUsuario = new DataTable();
+                dtbUsuario = bllUsuario.Localizar(Convert.ToInt32(txtValor.Text));
+               
+                usoId = Convert.ToInt32(dtbUsuario.Rows[0][0]);
+                usoNomePesquiado = Convert.ToString(dtbUsuario.Rows[0][1]);
+                usoLoginPesquisado = Convert.ToString(dtbUsuario.Rows[0][2]);
+
                 //Carregar as permissões padrões
                 IDictionary<String, string> strPermissao = new Dictionary<string, string>()
                 {
@@ -124,8 +135,12 @@ namespace GUI
                     }
                     i++;
                 }
+                MessageBox.Show("Atenção \n As configurações Padrão (Default) foram carregadas para o Usuário\n\n" +
+                    "Realize as devidas alterações e clique em Salvar para que o usuário tenha acesso ao sistema!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 operacao = "inserir";
+                alteraBotoes(2);
             }
-            alteraBotoes(3);
+            
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -175,7 +190,7 @@ namespace GUI
                 permissaoDoUsuario.UseId = Convert.ToInt32(usoId);
                 bll.Incluir(permissaoDoUsuario);
             }
-          
+            MessageBox.Show("As permissões foram cadastradas com sucesso!", "Aviso", MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
     }
