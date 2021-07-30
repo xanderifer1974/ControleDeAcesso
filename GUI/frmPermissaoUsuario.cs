@@ -94,6 +94,7 @@ namespace GUI
                     usoLoginPesquisado = Convert.ToString(tabela.Rows[0][9]);
                     operacao = "alterar";
                     alteraBotoes(3);
+                    tabela.Dispose();
 
                 }
                 else
@@ -150,7 +151,8 @@ namespace GUI
                 MessageBox.Show("Erro ocorrido na operação \n\n Contacte o Administrador do Sistema\n\nErro ocorrido: " + erro.Message
                  , "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
+            txtUsuarioPesquisado.Text = usoNomePesquiado + "( " + usoLoginPesquisado + " )";
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -167,6 +169,7 @@ namespace GUI
             usoLoginPesquisado = "";
             usoNomePesquiado = "";
             txtValor.Text = "";
+            txtUsuarioPesquisado.Text = "";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -201,6 +204,13 @@ namespace GUI
                 bll.Incluir(permissaoDoUsuario);
             }
             MessageBox.Show("As permissões foram cadastradas com sucesso!", "Aviso", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            alteraBotoes(1);
+            dgvDadosPermissao.Rows.Clear();
+            txtValor.Text = "";
+            operacao = "";
+            usoId = 0;
+            usoLoginPesquisado = "";
+            usoNomePesquiado = "";
 
         }
 
@@ -232,6 +242,16 @@ namespace GUI
 
                 anError.ThrowException = false;
             }
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

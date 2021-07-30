@@ -46,8 +46,18 @@
             this.alterar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Excluir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.imprimir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtUsuarioPesquisado = new System.Windows.Forms.TextBox();
+            this.gbxMarcarTodos = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDadosPermissao)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.gbxMarcarTodos.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -58,9 +68,9 @@
             this.panel2.Controls.Add(this.btnExcluir);
             this.panel2.Controls.Add(this.btnAlterar);
             this.panel2.Controls.Add(this.btnPesquisar);
-            this.panel2.Location = new System.Drawing.Point(5, 388);
+            this.panel2.Location = new System.Drawing.Point(1, 538);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(911, 105);
+            this.panel2.Size = new System.Drawing.Size(957, 105);
             this.panel2.TabIndex = 2;
             // 
             // btnCancelar
@@ -70,7 +80,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::GUI.Properties.Resources.cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(760, 19);
+            this.btnCancelar.Location = new System.Drawing.Point(796, 17);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(143, 85);
             this.btnCancelar.TabIndex = 5;
@@ -87,7 +97,7 @@
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.Image = global::GUI.Properties.Resources.salvar;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSalvar.Location = new System.Drawing.Point(573, 19);
+            this.btnSalvar.Location = new System.Drawing.Point(600, 17);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(143, 85);
             this.btnSalvar.TabIndex = 4;
@@ -104,7 +114,7 @@
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Image = global::GUI.Properties.Resources.delete1;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExcluir.Location = new System.Drawing.Point(386, 19);
+            this.btnExcluir.Location = new System.Drawing.Point(404, 19);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(143, 85);
             this.btnExcluir.TabIndex = 3;
@@ -137,7 +147,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Image = global::GUI.Properties.Resources.search2;
             this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPesquisar.Location = new System.Drawing.Point(199, 19);
+            this.btnPesquisar.Location = new System.Drawing.Point(208, 19);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(143, 85);
             this.btnPesquisar.TabIndex = 1;
@@ -161,18 +171,18 @@
             this.alterar,
             this.Excluir,
             this.imprimir});
-            this.dgvDadosPermissao.Location = new System.Drawing.Point(21, 98);
+            this.dgvDadosPermissao.Location = new System.Drawing.Point(12, 205);
             this.dgvDadosPermissao.Name = "dgvDadosPermissao";
             this.dgvDadosPermissao.RowHeadersVisible = false;
             this.dgvDadosPermissao.RowTemplate.Height = 28;
-            this.dgvDadosPermissao.Size = new System.Drawing.Size(902, 282);
+            this.dgvDadosPermissao.Size = new System.Drawing.Size(946, 327);
             this.dgvDadosPermissao.TabIndex = 3;
             this.dgvDadosPermissao.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDadosPermissao_DataError);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 18);
+            this.label1.Location = new System.Drawing.Point(30, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 20);
             this.label1.TabIndex = 4;
@@ -181,14 +191,15 @@
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(34, 41);
+            this.txtValor.Location = new System.Drawing.Point(34, 28);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(680, 26);
             this.txtValor.TabIndex = 5;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             // 
             // btnLocalizarPermissao
             // 
-            this.btnLocalizarPermissao.Location = new System.Drawing.Point(732, 39);
+            this.btnLocalizarPermissao.Location = new System.Drawing.Point(732, 26);
             this.btnLocalizarPermissao.Name = "btnLocalizarPermissao";
             this.btnLocalizarPermissao.Size = new System.Drawing.Size(107, 30);
             this.btnLocalizarPermissao.TabIndex = 6;
@@ -254,11 +265,91 @@
             this.imprimir.TrueValue = "\"True\"";
             this.imprimir.Width = 70;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtUsuarioPesquisado);
+            this.groupBox1.Location = new System.Drawing.Point(21, 60);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(818, 69);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Permissões do usuário";
+            // 
+            // txtUsuarioPesquisado
+            // 
+            this.txtUsuarioPesquisado.Enabled = false;
+            this.txtUsuarioPesquisado.Location = new System.Drawing.Point(13, 25);
+            this.txtUsuarioPesquisado.Name = "txtUsuarioPesquisado";
+            this.txtUsuarioPesquisado.Size = new System.Drawing.Size(687, 26);
+            this.txtUsuarioPesquisado.TabIndex = 8;
+            // 
+            // gbxMarcarTodos
+            // 
+            this.gbxMarcarTodos.Controls.Add(this.checkBox5);
+            this.gbxMarcarTodos.Controls.Add(this.checkBox4);
+            this.gbxMarcarTodos.Controls.Add(this.checkBox3);
+            this.gbxMarcarTodos.Controls.Add(this.checkBox2);
+            this.gbxMarcarTodos.Controls.Add(this.checkBox1);
+            this.gbxMarcarTodos.Location = new System.Drawing.Point(258, 135);
+            this.gbxMarcarTodos.Name = "gbxMarcarTodos";
+            this.gbxMarcarTodos.Size = new System.Drawing.Size(646, 65);
+            this.gbxMarcarTodos.TabIndex = 9;
+            this.gbxMarcarTodos.TabStop = false;
+            this.gbxMarcarTodos.Text = "Marcar Todos";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(171, 31);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(22, 21);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(276, 31);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(22, 21);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(378, 31);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(22, 21);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(489, 30);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(22, 21);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(583, 30);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(22, 21);
+            this.checkBox5.TabIndex = 4;
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
             // frmPermissaoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 494);
+            this.ClientSize = new System.Drawing.Size(970, 656);
+            this.Controls.Add(this.gbxMarcarTodos);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLocalizarPermissao);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.label1);
@@ -270,6 +361,10 @@
             this.Load += new System.EventHandler(this.frmPermissaoUsuario_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDadosPermissao)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.gbxMarcarTodos.ResumeLayout(false);
+            this.gbxMarcarTodos.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +390,13 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn alterar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Excluir;
         private System.Windows.Forms.DataGridViewCheckBoxColumn imprimir;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtUsuarioPesquisado;
+        private System.Windows.Forms.GroupBox gbxMarcarTodos;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
