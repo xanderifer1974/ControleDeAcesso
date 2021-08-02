@@ -35,9 +35,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.dgvDadosPermissao = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.btnLocalizarPermissao = new System.Windows.Forms.Button();
             this.per_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeFrm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,14 +43,17 @@
             this.alterar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Excluir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.imprimir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.btnLocalizarPermissao = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtUsuarioPesquisado = new System.Windows.Forms.TextBox();
             this.gbxMarcarTodos = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.chxMarcaImprimir = new System.Windows.Forms.CheckBox();
+            this.chxMarcaExcluir = new System.Windows.Forms.CheckBox();
+            this.chxMarcaAlterar = new System.Windows.Forms.CheckBox();
+            this.chxMarcaInserir = new System.Windows.Forms.CheckBox();
+            this.chxMarcaBloqueado = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDadosPermissao)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -155,6 +155,7 @@
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // dgvDadosPermissao
             // 
@@ -178,34 +179,6 @@
             this.dgvDadosPermissao.Size = new System.Drawing.Size(946, 327);
             this.dgvDadosPermissao.TabIndex = 3;
             this.dgvDadosPermissao.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDadosPermissao_DataError);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Código do Usuário";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(34, 28);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(680, 26);
-            this.txtValor.TabIndex = 5;
-            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
-            // 
-            // btnLocalizarPermissao
-            // 
-            this.btnLocalizarPermissao.Location = new System.Drawing.Point(732, 26);
-            this.btnLocalizarPermissao.Name = "btnLocalizarPermissao";
-            this.btnLocalizarPermissao.Size = new System.Drawing.Size(107, 30);
-            this.btnLocalizarPermissao.TabIndex = 6;
-            this.btnLocalizarPermissao.Text = "Localizar";
-            this.btnLocalizarPermissao.UseVisualStyleBackColor = true;
-            this.btnLocalizarPermissao.Click += new System.EventHandler(this.btnLocalizarPermissao_Click);
             // 
             // per_id
             // 
@@ -265,6 +238,34 @@
             this.imprimir.TrueValue = "\"True\"";
             this.imprimir.Width = 70;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Código do Usuário";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(34, 28);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(680, 26);
+            this.txtValor.TabIndex = 5;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
+            // 
+            // btnLocalizarPermissao
+            // 
+            this.btnLocalizarPermissao.Location = new System.Drawing.Point(732, 26);
+            this.btnLocalizarPermissao.Name = "btnLocalizarPermissao";
+            this.btnLocalizarPermissao.Size = new System.Drawing.Size(107, 30);
+            this.btnLocalizarPermissao.TabIndex = 6;
+            this.btnLocalizarPermissao.Text = "Localizar";
+            this.btnLocalizarPermissao.UseVisualStyleBackColor = true;
+            this.btnLocalizarPermissao.Click += new System.EventHandler(this.btnLocalizarPermissao_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtUsuarioPesquisado);
@@ -285,63 +286,67 @@
             // 
             // gbxMarcarTodos
             // 
-            this.gbxMarcarTodos.Controls.Add(this.checkBox5);
-            this.gbxMarcarTodos.Controls.Add(this.checkBox4);
-            this.gbxMarcarTodos.Controls.Add(this.checkBox3);
-            this.gbxMarcarTodos.Controls.Add(this.checkBox2);
-            this.gbxMarcarTodos.Controls.Add(this.checkBox1);
+            this.gbxMarcarTodos.Controls.Add(this.chxMarcaImprimir);
+            this.gbxMarcarTodos.Controls.Add(this.chxMarcaExcluir);
+            this.gbxMarcarTodos.Controls.Add(this.chxMarcaAlterar);
+            this.gbxMarcarTodos.Controls.Add(this.chxMarcaInserir);
+            this.gbxMarcarTodos.Controls.Add(this.chxMarcaBloqueado);
             this.gbxMarcarTodos.Location = new System.Drawing.Point(258, 135);
             this.gbxMarcarTodos.Name = "gbxMarcarTodos";
             this.gbxMarcarTodos.Size = new System.Drawing.Size(646, 65);
             this.gbxMarcarTodos.TabIndex = 9;
             this.gbxMarcarTodos.TabStop = false;
-            this.gbxMarcarTodos.Text = "Marcar Todos";
+            this.gbxMarcarTodos.Text = "Marcar / Desmarcar Todos";
             // 
-            // checkBox1
+            // chxMarcaImprimir
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(171, 31);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(22, 21);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chxMarcaImprimir.AutoSize = true;
+            this.chxMarcaImprimir.Location = new System.Drawing.Point(583, 30);
+            this.chxMarcaImprimir.Name = "chxMarcaImprimir";
+            this.chxMarcaImprimir.Size = new System.Drawing.Size(22, 21);
+            this.chxMarcaImprimir.TabIndex = 4;
+            this.chxMarcaImprimir.UseVisualStyleBackColor = true;
+            this.chxMarcaImprimir.CheckedChanged += new System.EventHandler(this.chxMarcaImprimir_CheckedChanged);
             // 
-            // checkBox2
+            // chxMarcaExcluir
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(276, 31);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(22, 21);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chxMarcaExcluir.AutoSize = true;
+            this.chxMarcaExcluir.Location = new System.Drawing.Point(489, 30);
+            this.chxMarcaExcluir.Name = "chxMarcaExcluir";
+            this.chxMarcaExcluir.Size = new System.Drawing.Size(22, 21);
+            this.chxMarcaExcluir.TabIndex = 3;
+            this.chxMarcaExcluir.UseVisualStyleBackColor = true;
+            this.chxMarcaExcluir.CheckedChanged += new System.EventHandler(this.chxMarcaExcluir_CheckedChanged);
             // 
-            // checkBox3
+            // chxMarcaAlterar
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(378, 31);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(22, 21);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.chxMarcaAlterar.AutoSize = true;
+            this.chxMarcaAlterar.Location = new System.Drawing.Point(378, 31);
+            this.chxMarcaAlterar.Name = "chxMarcaAlterar";
+            this.chxMarcaAlterar.Size = new System.Drawing.Size(22, 21);
+            this.chxMarcaAlterar.TabIndex = 2;
+            this.chxMarcaAlterar.UseVisualStyleBackColor = true;
+            this.chxMarcaAlterar.CheckedChanged += new System.EventHandler(this.chxMarcaAlterar_CheckedChanged);
             // 
-            // checkBox4
+            // chxMarcaInserir
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(489, 30);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(22, 21);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chxMarcaInserir.AutoSize = true;
+            this.chxMarcaInserir.Location = new System.Drawing.Point(276, 31);
+            this.chxMarcaInserir.Name = "chxMarcaInserir";
+            this.chxMarcaInserir.Size = new System.Drawing.Size(22, 21);
+            this.chxMarcaInserir.TabIndex = 1;
+            this.chxMarcaInserir.UseVisualStyleBackColor = true;
+            this.chxMarcaInserir.CheckedChanged += new System.EventHandler(this.chxMarcaInserir_CheckedChanged);
             // 
-            // checkBox5
+            // chxMarcaBloqueado
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(583, 30);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(22, 21);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chxMarcaBloqueado.AutoSize = true;
+            this.chxMarcaBloqueado.Location = new System.Drawing.Point(171, 31);
+            this.chxMarcaBloqueado.Name = "chxMarcaBloqueado";
+            this.chxMarcaBloqueado.Size = new System.Drawing.Size(22, 21);
+            this.chxMarcaBloqueado.TabIndex = 0;
+            this.chxMarcaBloqueado.UseVisualStyleBackColor = true;
+            this.chxMarcaBloqueado.CheckedChanged += new System.EventHandler(this.chxMarcaBloqueado_CheckedChanged);
             // 
             // frmPermissaoUsuario
             // 
@@ -393,10 +398,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtUsuarioPesquisado;
         private System.Windows.Forms.GroupBox gbxMarcarTodos;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chxMarcaImprimir;
+        private System.Windows.Forms.CheckBox chxMarcaExcluir;
+        private System.Windows.Forms.CheckBox chxMarcaAlterar;
+        private System.Windows.Forms.CheckBox chxMarcaInserir;
+        private System.Windows.Forms.CheckBox chxMarcaBloqueado;
     }
 }

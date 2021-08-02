@@ -30,6 +30,7 @@ namespace GUI
             btnCancelar.Enabled = false;
             btnSalvar.Enabled = false;
             dgvDadosPermissao.Enabled = false;
+            gbxMarcarTodos.Enabled = false;
             btnExcluir.Enabled = false;
 
 
@@ -46,6 +47,7 @@ namespace GUI
                 dgvDadosPermissao.Enabled = true;
                 btnSalvar.Enabled = true;
                 btnCancelar.Enabled = true;
+                gbxMarcarTodos.Enabled = true;
             }
 
             if (op == 3)
@@ -249,9 +251,73 @@ namespace GUI
 
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void chxMarcaBloqueado_CheckedChanged(object sender, EventArgs e)
         {
+            int qtdeRegistros = dgvDadosPermissao.RowCount;
+            for (int i=0; i < qtdeRegistros; i++)
+            {
+                dgvDadosPermissao.Rows[i].Cells[3].Value = chxMarcaBloqueado.Checked;
 
+            }
+        }
+
+        private void chxMarcaInserir_CheckedChanged(object sender, EventArgs e)
+        {
+            int qtdeRegistros = dgvDadosPermissao.RowCount;
+            for (int i = 0; i < qtdeRegistros; i++)
+            {
+                dgvDadosPermissao.Rows[i].Cells[4].Value = chxMarcaInserir.Checked;
+
+            }
+        }
+
+        private void chxMarcaAlterar_CheckedChanged(object sender, EventArgs e)
+        {
+            int qtdeRegistros = dgvDadosPermissao.RowCount;
+            for (int i = 0; i < qtdeRegistros; i++)
+            {
+                dgvDadosPermissao.Rows[i].Cells[5].Value = chxMarcaAlterar.Checked;
+
+            }
+
+        }
+
+        private void chxMarcaExcluir_CheckedChanged(object sender, EventArgs e)
+        {
+            int qtdeRegistros = dgvDadosPermissao.RowCount;
+            for (int i = 0; i < qtdeRegistros; i++)
+            {
+                dgvDadosPermissao.Rows[i].Cells[6].Value = chxMarcaExcluir.Checked;
+
+            }
+        }
+
+        private void chxMarcaImprimir_CheckedChanged(object sender, EventArgs e)
+        {
+            int qtdeRegistros = dgvDadosPermissao.RowCount;
+            for (int i = 0; i < qtdeRegistros; i++)
+            {
+                dgvDadosPermissao.Rows[i].Cells[7].Value = chxMarcaImprimir.Checked;
+
+            }
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmLocalizarUsuario pesquisaUsuario = new frmLocalizarUsuario();
+            pesquisaUsuario.ShowDialog();
+            if(pesquisaUsuario.codigo != 0)
+            {
+                txtValor.Text = pesquisaUsuario.codigo.ToString();
+                btnLocalizarPermissao_Click(sender, e);
+                alteraBotoes(3);
+            }
+            else
+            {
+                alteraBotoes(1);
+            }
+            pesquisaUsuario.Dispose();
         }
     }
 }
