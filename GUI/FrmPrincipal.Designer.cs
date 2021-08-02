@@ -57,6 +57,7 @@
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSair = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtUsuarioLogado = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -285,11 +286,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtUsuarioLogado
+            // 
+            this.txtUsuarioLogado.Location = new System.Drawing.Point(81, 498);
+            this.txtUsuarioLogado.Name = "txtUsuarioLogado";
+            this.txtUsuarioLogado.Size = new System.Drawing.Size(777, 26);
+            this.txtUsuarioLogado.TabIndex = 3;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 712);
+            this.Controls.Add(this.txtUsuarioLogado);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.menuStrip1);
@@ -298,6 +307,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SYS Vendas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -336,6 +346,7 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtUsuarioLogado;
     }
 }
 

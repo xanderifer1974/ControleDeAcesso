@@ -88,6 +88,7 @@
             this.btnLogar.TabIndex = 6;
             this.btnLogar.Text = "Logar";
             this.btnLogar.UseVisualStyleBackColor = true;
+            this.btnLogar.Click += new System.EventHandler(this.btnLogar_Click);
             // 
             // frmLogin
             // 

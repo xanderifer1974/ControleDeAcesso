@@ -136,7 +136,7 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select * from usuario where use_login='" + login.ToString() +
-                "COLATE SQL_Latin1_General_CP1_CS_AS and use_senha='" + senha.ToString(), conexao.StringConexao);
+                "'COLLATE SQL_Latin1_General_CP1_CS_AS and use_senha='" + senha.ToString() + "'", conexao.StringConexao);
             da.Fill(tabela);
             da.Dispose();
             return tabela;

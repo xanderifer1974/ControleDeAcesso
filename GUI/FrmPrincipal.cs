@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ferramentas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,6 +55,12 @@ namespace GUI
             frmLogin login = new frmLogin();
             login.ShowDialog();
             login.Dispose();
+            txtUsuarioLogado.Text = SessaoUsuario.Session.Instance.UsuNome;
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            //txtUsuarioLogado.Text = SessaoUsuario.Session.Instance.UsuNome;
         }
     }
 }
