@@ -70,6 +70,16 @@ namespace GUI
             {
                 DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
 
+                //Verifica se existe usuário
+                BLLUsuario bllTestaUsuario = new BLLUsuario(cx);
+                if(bllTestaUsuario.Localizar(Convert.ToInt32(txtValor.Text)).Rows.Count <= 0)
+                {
+                    MessageBox.Show("Atenção!!! O código digitado não corresponde  a nenhum usuário Cadastrado!!!", "Aviso!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtValor.Focus();
+                    txtValor.Text = "";
+                    return;
+                }
+
                 BLLPermissaoDoUsuario bll = new BLLPermissaoDoUsuario(cx);
                 DataTable tabela = new DataTable();
                 tabela = bll.Localizar(Convert.ToInt32(txtValor.Text));
@@ -318,6 +328,37 @@ namespace GUI
                 alteraBotoes(1);
             }
             pesquisaUsuario.Dispose();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(Convert.ToInt32(dgvDadosPermissao.Rows[0].Cells[0].Value) <= 0)
+                {
+                    dgvDadosPermissao.Rows.Clear();
+                    return;
+                }
+
+                DialogResult d = MessageBox.Show("Deseja excluir todas as permissões do usuário pesquisado?" +
+                    "\n\nAtenção!! Sem as permissões, o usuário não conseguirá acessar o sistema!!", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                if (d.ToString() == "Yes")
+                {
+                    DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
+                    BLLPermissaoDoUsuario bll = new BLLPermissaoDoUsuario(cx);
+                    bll.ExcluiTudo(usoId);
+                    dgvDadosPermissao.Rows.Clear();
+                    alteraBotoes(1);
+                }
+
+            }
+            catch 
+            {
+
+                MessageBox.Show("Impossível Excluir o registro. \n O registro está sendo utilizado em outro local.");
+                this.alteraBotoes(3);
+            }
         }
     }
 }
