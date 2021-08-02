@@ -48,5 +48,12 @@ namespace GUI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            login.ShowDialog();
+            login.Dispose();
+        }
     }
 }
