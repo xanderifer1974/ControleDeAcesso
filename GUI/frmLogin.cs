@@ -62,5 +62,15 @@ namespace GUI
         {
             VerificarPermissaoUsuario.VerificaCaracterNaoPermitido(txtUsuario.Text);            
         }
+
+        private void txtSenha_Leave(object sender, EventArgs e)
+        {
+            VerificarPermissaoUsuario.VerificaCaracterNaoPermitido(txtSenha.Text);
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

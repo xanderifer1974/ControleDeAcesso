@@ -122,6 +122,7 @@
             this.txtLogin.Size = new System.Drawing.Size(468, 26);
             this.txtLogin.TabIndex = 2;
             this.txtLogin.TextChanged += new System.EventHandler(this.txtLogin_TextChanged);
+            this.txtLogin.Leave += new System.EventHandler(this.txtLogin_Leave);
             // 
             // label3
             // 
@@ -158,6 +159,7 @@
             this.txtGrupo.Name = "txtGrupo";
             this.txtGrupo.Size = new System.Drawing.Size(468, 26);
             this.txtGrupo.TabIndex = 4;
+            this.txtGrupo.Leave += new System.EventHandler(this.txtGrupo_Leave);
             // 
             // label5
             // 

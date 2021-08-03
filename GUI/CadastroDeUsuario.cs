@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DAL;
 using Ferramentas;
+using GUI.Common;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -159,18 +160,35 @@ namespace GUI
 
         private void txtSenha_Leave(object sender, EventArgs e)
         {
-
+            if (CaracterEspecial.VerificarCaracter(txtSenha.Text) != "OK")
+            {
+                MessageBox.Show("Um caracter não permitido foi inserido!!! \n\n Remova-o e prossiga com a operação!", "Caracter Não Permitido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSenha.Focus();
+            }
         }
 
-        private void txtNome_Leave(object sender, EventArgs e)
-        {
+        private void txtNome_Leave(object sender, EventArgs e)        {
+           
+
             try
             {
-                if (operacao == "inserir" && txtLogin.Text.Trim().Length == 0 && txtNome.Text.Trim().Length > 0)
+                if (CaracterEspecial.VerificarCaracter(txtNome.Text) != "OK")
                 {
-                    string[] f = txtNome.Text.Split(' ');
-                    txtLogin.Text = Convert.ToString(f[0] + f.Last());
+                    MessageBox.Show("Um caracter não permitido foi inserido!!! \n\n Remova-o e prossiga com a operação!", "Caracter Não Permitido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNome.Focus();
                 }
+                else
+                {
+                    if (operacao == "inserir" && txtLogin.Text.Trim().Length == 0 && txtNome.Text.Trim().Length > 0)
+                    {
+                        string[] f = txtNome.Text.Split(' ');
+                        txtLogin.Text = Convert.ToString(f[0] + f.Last());
+                    }
+
+                }
+               
+
+
             }
             catch 
             {
@@ -221,6 +239,24 @@ namespace GUI
         private void pnDados_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtLogin_Leave(object sender, EventArgs e)
+        {
+            if (CaracterEspecial.VerificarCaracter(txtLogin.Text) != "OK")
+            {
+                MessageBox.Show("Um caracter não permitido foi inserido!!! \n\n Remova-o e prossiga com a operação!", "Caracter Não Permitido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLogin.Focus();
+            }
+        }
+
+        private void txtGrupo_Leave(object sender, EventArgs e)
+        {
+            if (CaracterEspecial.VerificarCaracter(txtGrupo.Text) != "OK")
+            {
+                MessageBox.Show("Um caracter não permitido foi inserido!!! \n\n Remova-o e prossiga com a operação!", "Caracter Não Permitido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtGrupo.Focus();
+            }
         }
     }
 }

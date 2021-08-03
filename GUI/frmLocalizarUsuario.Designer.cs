@@ -57,6 +57,7 @@
             this.txtValor.Size = new System.Drawing.Size(717, 26);
             this.txtValor.TabIndex = 1;
             this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
+            this.txtValor.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
             // btnLocalizar
             // 

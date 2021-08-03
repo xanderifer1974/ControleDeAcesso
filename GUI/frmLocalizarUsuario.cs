@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using GUI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,6 +68,11 @@ namespace GUI
         {
             codigo = Convert.ToInt32(dgvDados.Rows[e.RowIndex].Cells[0].Value);
             this.Close();
+        }
+
+        private void txtValor_Leave(object sender, EventArgs e)
+        {
+            VerificarPermissaoUsuario.VerificaCaracterNaoPermitido(txtValor.Text);
         }
     }
 }

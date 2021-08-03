@@ -83,6 +83,7 @@
             this.txtSenha.Size = new System.Drawing.Size(215, 26);
             this.txtSenha.TabIndex = 4;
             this.txtSenha.Text = "123";
+            this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
             // 
             // btnLogar
             // 
@@ -111,6 +112,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acesso ao Sistema";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

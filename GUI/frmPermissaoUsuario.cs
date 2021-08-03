@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using GUI.Common;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -359,6 +360,11 @@ namespace GUI
                 MessageBox.Show("Impossível Excluir o registro. \n O registro está sendo utilizado em outro local.");
                 this.alteraBotoes(3);
             }
+        }
+
+        private void txtValor_Leave(object sender, EventArgs e)
+        {
+            VerificarPermissaoUsuario.VerificaCaracterNaoPermitido(txtValor.Text);
         }
     }
 }
