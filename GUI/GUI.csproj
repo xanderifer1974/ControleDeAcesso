@@ -66,6 +66,7 @@
     <Compile Include="CadastroDeUsuario.Designer.cs">
       <DependentUpon>CadastroDeUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\VerificarPermissaoUsuario.cs" />
     <Compile Include="frmLocalizarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
