@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Ferramentas;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -48,11 +49,25 @@ namespace GUI
 
         private void frmCadastroUsuario_Load(object sender, EventArgs e)
         {
-            //Carregar as permissões do usuário.
-            perInserir = true;
-            perAlterar = true;
-            perExcluir = true;
-            perImprimir = true;
+            try
+            {
+                //Carregar as permissões do usuário.
+                DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
+                BLLPermissaoDoUsuario bll = new BLLPermissaoDoUsuario(cx);
+                DataTable tabela = new DataTable();
+                tabela = bll.LocalizarPermissao(SessaoUsuario.Session.Instance.UsuId, this.Name.ToString());
+
+                perInserir = Convert.ToBoolean(tabela.Rows[0][4]);
+                perAlterar = Convert.ToBoolean(tabela.Rows[0][5]);
+                perExcluir = Convert.ToBoolean(tabela.Rows[0][6]);
+                perImprimir = Convert.ToBoolean(tabela.Rows[0][7]);
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao ler as permissões do usuário!!! \n\n Contacte o Administrador do Sistema\n\nErro ocorrido: " + erro.Message
+                , "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             //Chamar a função ChecaPermissoes
             alteraBotoes(1, perInserir, perAlterar, perExcluir, perImprimir);

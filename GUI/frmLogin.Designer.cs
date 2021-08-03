@@ -54,6 +54,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(215, 26);
             this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.Text = "JLima";
             // 
             // label1
             // 
@@ -77,8 +78,10 @@
             // 
             this.txtSenha.Location = new System.Drawing.Point(251, 94);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(215, 26);
             this.txtSenha.TabIndex = 4;
+            this.txtSenha.Text = "123";
             // 
             // btnLogar
             // 

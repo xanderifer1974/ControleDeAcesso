@@ -22,21 +22,38 @@ namespace GUI
 
         private void btnLogar_Click(object sender, EventArgs e)
         {
-            DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
-            BLLUsuario bll = new BLLUsuario(cx);
-            DataTable tabela = new DataTable();
-            tabela = bll.LocalizarUsuarioLogin(txtUsuario.Text, txtSenha.Text);
-            if (tabela.Rows.Count == 1)
+            try
             {
-                SessaoUsuario.Session.Instance.UsuId = Convert.ToInt32(tabela.Rows[0][0].ToString());
-                SessaoUsuario.Session.Instance.UsuNome = tabela.Rows[0][1].ToString();
-                SessaoUsuario.Session.Instance.UsuGrupo = tabela.Rows[0][3].ToString();
-                MessageBox.Show("Usuário encontrado com sucesso");
+                if (txtUsuario.Text.Trim().Length == 0 || txtSenha.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("Os campos usuários e senha são de preenchimento obrigatório!!! \n\n" +
+                        "Preecha os dados e clique novamente em logar!!!", "Erro!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUsuario.Focus();
+                    return;
+                }
+                DALConexao cx = new DALConexao(DadosDeConexao.StringDeConexao);
+                BLLUsuario bll = new BLLUsuario(cx);
+                DataTable tabela = new DataTable();
+                tabela = bll.LocalizarUsuarioLogin(txtUsuario.Text, txtSenha.Text);
+                if (tabela.Rows.Count == 1)
+                {
+                    SessaoUsuario.Session.Instance.UsuId = Convert.ToInt32(tabela.Rows[0][0].ToString());
+                    SessaoUsuario.Session.Instance.UsuNome = tabela.Rows[0][1].ToString();
+                    SessaoUsuario.Session.Instance.UsuGrupo = tabela.Rows[0][3].ToString();
+                    this.Close();
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário não encontrado");
+                    return;
+                }
             }
-            else
+            catch (Exception erro)
             {
-                MessageBox.Show("Usuário não encontrado");
-                return;
+
+                MessageBox.Show("Erro ocorrido ao tentar processar os dados \n\n Contacte o Administrador do Sistema\n\nErro ocorrido: " + erro.Message
+               , "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

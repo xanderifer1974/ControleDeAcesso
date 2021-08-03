@@ -50,17 +50,11 @@ namespace GUI
             f.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmLogin login = new frmLogin();
-            login.ShowDialog();
-            login.Dispose();
-            txtUsuarioLogado.Text = SessaoUsuario.Session.Instance.UsuNome;
-        }
+       
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            //txtUsuarioLogado.Text = SessaoUsuario.Session.Instance.UsuNome;
+            txtUsuarioLogado.Text = SessaoUsuario.Session.Instance.UsuNome;
         }
     }
 }
