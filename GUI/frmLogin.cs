@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DAL;
 using Ferramentas;
+using GUI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,6 +56,11 @@ namespace GUI
                 MessageBox.Show("Erro ocorrido ao tentar processar os dados \n\n Contacte o Administrador do Sistema\n\nErro ocorrido: " + erro.Message
                , "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void txtUsuario_Leave(object sender, EventArgs e)
+        {
+            VerificarPermissaoUsuario.VerificaCaracterNaoPermitido(txtUsuario.Text);            
         }
     }
 }

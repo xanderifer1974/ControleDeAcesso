@@ -55,6 +55,7 @@
             this.txtUsuario.Size = new System.Drawing.Size(215, 26);
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.Text = "JLima";
+            this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // label1
             // 

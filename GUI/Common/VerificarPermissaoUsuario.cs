@@ -1,6 +1,8 @@
 ﻿using BLL;
 using DAL;
+using Ferramentas;
 using System.Data;
+using System.Windows.Forms;
 
 namespace GUI.Common
 {
@@ -20,6 +22,15 @@ namespace GUI.Common
             Tabela = PermissaoUsuario.LocalizarPermissao(id, formulario);
 
             return Tabela;
+        }
+
+        public static void VerificaCaracterNaoPermitido(string texto)
+        {
+            if (CaracterEspecial.VerificarCaracter(texto) != "OK")
+            {
+                MessageBox.Show("Um caracter não permitido foi inserido!!! \n\n Remova-o e prossiga com a operação!", "Caracter Não Permitido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
 
