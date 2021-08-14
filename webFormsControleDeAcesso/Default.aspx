@@ -15,9 +15,9 @@
 <body style="width: 1770px; height: 648px">
     <form id="form1" runat="server">
         <div class="auto-style1">
-            <asp:Menu ID="mnPrincipal" runat="server" BackColor="#E3EAEB" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#666666" Orientation="Horizontal" StaticSubMenuIndent="10px">
+            <asp:Menu ID="mnPrincipal" runat="server" BackColor="#E3EAEB" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.5em" ForeColor="#666666" Orientation="Horizontal" StaticSubMenuIndent="10px">
                 <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
-                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <DynamicMenuItemStyle HorizontalPadding="10px" VerticalPadding="5px" />
                 <DynamicMenuStyle BackColor="#E3EAEB" />
                 <DynamicSelectedStyle BackColor="#1C5E55" />
                 <Items>
